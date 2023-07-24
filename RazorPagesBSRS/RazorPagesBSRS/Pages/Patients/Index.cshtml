@@ -1,0 +1,61 @@
+﻿@page
+@model RazorPagesBSRS.Pages.Patients.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<table class="table" style="border:black">
+    <thead>
+        <tr>
+            <th>
+                    @Html.DisplayNameFor(model => model.BSRS[0].PatientID)
+                </a>
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BSRS[0].Professionalnum)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BSRS[0].Time)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BSRS[0].Score1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BSRS[0].Score2)
+            </th>
+            <th>
+
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.BSRS) {
+    int total = item.Score1 + item.Score2 + item.Score3 + item.Score4 + item.Score5;
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PatientID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Professionalnum)
+            </td>
+            <td>
+
+                @Html.DisplayFor(modelItem => item.Time)
+            </td> 
+            <td>
+                @total
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Score6)
+            </td>
+            <td>
+                <!--<a asp-page="./Edit" asp-route-id="@item.ID">編輯</a> | -->
+                <a asp-page="./Details" asp-route-id="@item.ID">測驗結果</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ID">刪除</a>
+            </td>
+        </tr>
+}
+
+    </tbody>
+</table>

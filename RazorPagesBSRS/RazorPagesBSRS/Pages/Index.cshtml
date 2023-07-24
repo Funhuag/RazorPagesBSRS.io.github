@@ -1,0 +1,29 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+<style>
+    .block{
+        font-size: 60px;
+        position:absolute;
+        top:40%;
+        left:40%;
+        border:0;
+    }
+
+    .btn{
+        background-color:powderblue;
+        height:40px;
+        border:0
+    }
+</style>
+
+<div class="text-center">
+    <form action="./patients/Create">
+        <div class="block">
+        <h1 style="font-size:60px;">心情溫度計</h1>
+            <input type="submit" class="btn" value="開始測驗">
+        </div>
+    </form>
+    </div>

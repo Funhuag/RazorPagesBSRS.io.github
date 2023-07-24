@@ -1,0 +1,127 @@
+﻿@page
+@model RazorPagesBSRS.Pages.Patients.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div style = "background-color: #6b8e23;" class="text-center">
+    <h1 class="display-4">心情溫度計(BSRS-5)</h1>
+</div>
+<br/>
+<div align = "center"><H1>CREATE</H1></DIV>
+<hr />
+<div align = "center" class="row">
+    <form method="post">
+        <table>
+            <div align = "center" class="col-md-4">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <tr>
+                    <td>
+                        <label asp-for="BSRS.PatientID" class="control-label">病歷號 : </label>
+                        <input asp-for="BSRS.PatientID" type = "text" minlength="8" maxlength = "8" pattern = "[0-9]{9}" placeholder="請輸入病歷號" required/> 
+                        <span asp-validation-for="BSRS.PatientID" class="text-danger"></span>
+                        <br/>
+                        <br/>
+                    </td>
+                    <td>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </td>
+                    <td>
+                        <label asp-for="BSRS.Professionalnum" class="control-label">轉介人員 : </label>
+                        <input asp-for="BSRS.Professionalnum" type = "text" minlength="6" maxlength = "7" pattern = "[0-9]{9}" placeholder="請輸入職編" required/>
+                        <span asp-validation-for="BSRS.Professionalnum" class="text-danger"></span>
+                        <br/>
+                        <br/>
+                    </td>
+                </tr>
+                
+                </div>
+            </div>
+        </table>
+    
+        
+    <div align = "center">
+    <table>
+        <tr>
+            <th>&nbsp題目&nbsp</th>
+            <th>&nbsp完全沒有(0)&nbsp</th>
+            <th>&nbsp輕微(1)&nbsp</th>
+            <th>&nbsp中等程度(2)&nbsp</th>
+            <th>&nbsp厲害(3)&nbsp</th>
+            <th>&nbsp非常厲害(4)&nbsp</th>
+        </tr>
+        <tr>
+            <td>1.睡眠困難，譬如難以入睡、易醒或早醒&nbsp</td>
+            <td align = "center"><input asp-for="BSRS.Score1" type = "radio" value = "0"/></td> 
+            <td align = "center"><input asp-for="BSRS.Score1" type = "radio" value = "1"/></td> 
+            <td align = "center"><input asp-for="BSRS.Score1" type = "radio" value = "2" checked/></td> 
+            <td align = "center"><input asp-for="BSRS.Score1" type = "radio" value = "3"/></td> 
+            <td align = "center"><input asp-for="BSRS.Score1" type = "radio" value = "4"/></td> 
+            <span asp-validation-for="BSRS.Score1" class="text-danger"></span>
+        </tr>
+        <tr>
+            <td>2.感覺緊張不安  &nbsp</td>
+            <td align = "center"><input asp-for="BSRS.Score2" type = "radio" value = "0"/></td> 
+            <td align = "center"><input asp-for="BSRS.Score2" type = "radio" value = "1"/></td> 
+            <td align = "center"><input asp-for="BSRS.Score2" type = "radio" value = "2" checked/></td> 
+            <td align = "center"><input asp-for="BSRS.Score2" type = "radio" value = "3"/></td> 
+            <td align = "center"><input asp-for="BSRS.Score2" type = "radio" value = "4"/></td> 
+            <span asp-validation-for="BSRS.Score2" class="text-danger"></span>
+        </tr>
+        <tr>
+            <td>3.感覺容易動怒  &nbsp</td>
+            <td align = "center"><input asp-for="BSRS.Score3" type = "radio" value = "0"/></td> 
+            <td align = "center"><input asp-for="BSRS.Score3" type = "radio" value = "1"/></td> 
+            <td align = "center"><input asp-for="BSRS.Score3" type = "radio" value = "2" checked/></td> 
+            <td align = "center"><input asp-for="BSRS.Score3" type = "radio" value = "3"/></td> 
+            <td align = "center"><input asp-for="BSRS.Score3" type = "radio" value = "4"/></td> 
+            <span asp-validation-for="BSRS.Score3" class="text-danger"></span>
+        </tr>
+        <tr>
+            <td>4.感覺憂鬱，心情低落 &nbsp</td>
+            <td align = "center"><input asp-for="BSRS.Score4" type = "radio" value = "0"/></td> 
+            <td align = "center"><input asp-for="BSRS.Score4" type = "radio" value = "1"/></td> 
+            <td align = "center"><input asp-for="BSRS.Score4" type = "radio" value = "2" checked/></td> 
+            <td align = "center"><input asp-for="BSRS.Score4" type = "radio" value = "3"/></td> 
+            <td align = "center"><input asp-for="BSRS.Score4" type = "radio" value = "4"/></td> 
+            <span asp-validation-for="BSRS.Score4" class="text-danger"></span>
+        </tr>
+        <tr>
+            <td>5.覺得比不上別人 &nbsp</td>
+            <td align = "center"><input asp-for="BSRS.Score5" type = "radio" value = "0"/></td> 
+            <td align = "center"><input asp-for="BSRS.Score5" type = "radio" value = "1"/></td> 
+            <td align = "center"><input asp-for="BSRS.Score5" type = "radio" value = "2" checked/></td> 
+            <td align = "center"><input asp-for="BSRS.Score5" type = "radio" value = "3"/></td> 
+            <td align = "center"><input asp-for="BSRS.Score5" type = "radio" value = "4"/></td> 
+            <span asp-validation-for="BSRS.Score5" class="text-danger"></span>
+        </tr>
+        <tr>
+            <td>★有自殺的想法  &nbsp</td>
+            <td align = "center"><input asp-for="BSRS.Score6" type = "radio" value = "0"/></td> 
+            <td align = "center"><input asp-for="BSRS.Score6" type = "radio" value = "1"/></td> 
+            <td align = "center"><input asp-for="BSRS.Score6" type = "radio" value = "2" checked/></td> 
+            <td align = "center"><input asp-for="BSRS.Score6" type = "radio" value = "3"/></td> 
+            <td align = "center"><input asp-for="BSRS.Score6" type = "radio" value = "4"/></td> 
+            <span asp-validation-for="BSRS.Score6" class="text-danger"></span>
+            @{
+                DateTime dateTime = DateTime.Now;
+            }
+            <td><input asp-for="BSRS.Time" type = "hidden" value = " @dateTime "/></td> 
+        </tr>
+    </table>
+</div>
+            <br/>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+            </form>
+    <br/>
+
+</div>
+<br/>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

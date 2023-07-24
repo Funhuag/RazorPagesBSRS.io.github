@@ -1,0 +1,229 @@
+﻿@page
+@model RazorPagesBSRS.Pages.Patients.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+<div>
+<div style = "background-color: #6b8e23;" class="text-center">
+    <h1 class="display-4">心情溫度計(BSRS-5)</h1>
+</div>
+<br/>
+<hr>
+<div style="float:right">
+    <input type = "button" style = "background-color:azure;border:1" onclick="window.print()" value="print">
+</div>
+<div class = "text-center">
+    <br/>
+    @{
+        int score1 = Model.BSRS.Score1;
+        int score2 = Model.BSRS.Score2;
+        int score3 = Model.BSRS.Score3;
+        int score4 = Model.BSRS.Score4;
+        int score5 = Model.BSRS.Score5;
+        int score6 = Model.BSRS.Score6;
+        int score = 0;
+        int option = 0;
+
+        score = score1 + score2 + score3 + score4 + score5;
+
+        if (score <= 5)
+            option = 1;
+        else if (score >= 6 && score <= 9)
+            option = 2;
+        else if (score >= 10 && score <= 14)
+            option = 3;
+        else if (score >= 15)
+            option = 4;
+
+        if(score6 == 0)
+        {
+            switch (option)
+            {
+                case 1 :
+                        <p>BSRS(0-5分)for OPD(V2)</p>
+                        <p>分數 : @score / @score6</p>
+                    break;
+
+                case 2:
+                        <p>BSRS(6-9分)for OPD(V2)<br/>
+                        您於 @Html.DisplayFor(model => model.BSRS.Time) 自填的「心情溫度計」分數稍高(分數 : @score / @score6)，可能有輕度情緒困擾，建議您找家人、朋友談談心事或尋求諮詢專線，抒發情緒</p>
+                    break;
+
+                case 3:
+                            <p>BSRS(10-14分)for OPD(V2)<br/>
+                            您於 @Html.DisplayFor(model => model.BSRS.Time) 自填的「心情溫度計」分數稍高，可能有中度情緒困擾情形，建議尋求心理衛生或精神醫療專業諮詢</p>
+                    break;
+
+                case 4:
+                        <p>BSRS(大於等於15分或自殺大於2分)for OPD(V2)</p>
+                        <p>您於 @Html.DisplayFor(model => model.BSRS.Time) 自填的「心情溫度計」分數較高，可能有重度情緒困擾情形，建議尋求精神醫療專業諮詢</p>
+                        <p>轉介人員職編 : @Html.DisplayFor(model => model.BSRS.Professionalnum)</p>
+                    break;
+            }
+        }else if(score6 == 1)
+        {
+            switch (option)
+            {
+                case 1 :
+                        <p>BSRS(0-5分)for OPD(V2)</p>
+                        <p>您於 @Html.DisplayFor(model => model.BSRS.Time) 自填的「心情溫度計」分數稍高，可能有中度情緒困擾情形，建議尋求心理衛生或精神醫療專業諮詢</p>
+                    break;
+
+                case 2 :
+                        <p>BSRS(10-14分)for OPD(V2)</p>
+                        <p>您於 @Html.DisplayFor(model => model.BSRS.Time) 自填的「心情溫度計」分數稍高，可能有中度情緒困擾情形，建議尋求心理衛生或精神醫療專業諮詢</p>
+                    break;
+
+                case 3 :
+                        <p>BSRS(10-14分)for OPD(V2)</p>
+                        <p>您於 @Html.DisplayFor(model => model.BSRS.Time) 自填的「心情溫度計」分數稍高，可能有中度情緒困擾情形，建議尋求心理衛生或精神醫療專業諮詢</p>
+                    break;
+
+                case 4 :
+                        <p>BSRS(大於等於15分或自殺大於2分)for OPD(V2)</p>
+                        <p>您於 @Html.DisplayFor(model => model.BSRS.Time) 自填的「心情溫度計」分數稍高，可能有重度情緒困擾情形，建議尋求精神醫療專業諮詢</p>
+                        <p>轉介人員職編 : @Html.DisplayFor(model => model.BSRS.Professionalnum)</p>
+                    break;
+            }
+        }else if(score >= 2)
+        {
+            switch (option)
+            {
+                case 1 :
+                        <p>BSRS(大於等於15分或自殺大於2分)for OPD(V2)</p>
+                        <p>您於 @Html.DisplayFor(model => model.BSRS.Time) 自填的「心情溫度計」分數較高，可能有重度情緒困擾情形，建議尋求精神醫療專業諮詢</p>
+                        <p>轉介人員職編 : @Html.DisplayFor(model => model.BSRS.Professionalnum)</p>
+                    break;
+                
+                case 2 :
+                        <p>BSRS(大於等於15分或自殺大於2分)for OPD(V2)</p>
+                        <p>您於 @Html.DisplayFor(model => model.BSRS.Time) 自填的「心情溫度計」分數較高，可能有重度情緒困擾情形，建議尋求精神醫療專業諮詢</p>
+                            <p>轉介人員職編 : @Html.DisplayFor(model => model.BSRS.Professionalnum)</p>
+                    break;
+
+                case 3 :
+                        <p>BSRS(大於等於15分或自殺大於2分)for OPD(V2)</p>
+                        <p>您於 @Html.DisplayFor(model => model.BSRS.Time) 自填的「心情溫度計」分數較高，可能有重度情緒困擾情形，建議尋求精神醫療專業諮詢</p>
+                            <p>轉介人員職編 : @Html.DisplayFor(model => model.BSRS.Professionalnum)</p>
+                    break;
+
+                case 4 :
+                        <p>BSRS(大於等於15分或自殺大於2分)for OPD(V2)</p>
+                        <p>您於 @Html.DisplayFor(model => model.BSRS.Time) 自填的「心情溫度計」分數較高，可能有重度情緒困擾情形，建議尋求精神醫療專業諮詢</p>
+                        <p>轉介人員職編 : @Html.DisplayFor(model => model.BSRS.Professionalnum)</p>
+                    break;
+            }
+        }
+
+    }
+    
+    
+<hr>
+</div>
+<div class = "text-center">
+    <h2><span style = "background-color:#6b8e23">高雄市心理諮商服務</span></h2>
+</div>
+<div>
+    <table align = "center">
+        <tr>
+            <th>名稱</th>
+            <th>電話</th>
+            <th>服務時間</th>
+        </tr>
+        
+        <tr>
+            <td>衛生福利部24小時安心專線&nbsp&nbsp</td>
+            <td>1925&nbsp&nbsp</td>
+            <td>24 小時，全年無休</td>
+        </tr>
+        <tr>
+            <td>高雄市生命線協會</td>
+            <td>1995</td>
+            <td>24 小時，全年無休</td>
+        </tr>
+        <tr>
+            <td>「張老師」基金會</td>
+            <td>1980</td>
+            <td>高雄市苓雅區中山二路 412 號 3 樓</td>
+        </tr>
+    </table>
+</div>
+    <HR>
+<div class = "text-center">
+    <h2><span style = "background-color:#6b8e23">市立大同醫院門診時間</span></h2>
+    <div class = "container"></div>
+    <div class = ".thumbnail">週一~週五 &nbsp</div>
+    <div class = ".thumbnail">
+        8:30 - 12:00
+        <br/>
+        14:00 - 17:30
+        <br/>
+        18:00 - 20:30
+    </div>
+</div>
+    <hr>
+
+<div class = "text-center">
+    <h2><span style = "background-color:#6b8e23">高雄市精神科資源</span></h2>
+</div>
+    <div>
+    <table align = "center">
+        <tr>
+            <th>精神醫療機構</th>
+            <th>電話</th>
+            <th>地址</th>
+        </tr>
+        <tr>
+            <td>財團法人私立高雄醫學大學附設中和紀念醫院</td>
+            <td>07-3121101 </td>
+            <td>高雄市三民區十全一路 100 號</td>
+        </tr>
+        <tr>
+            <td>義大醫療財團法人義大大昌醫院</td>
+            <td>07-5599123</td>
+            <td>高雄市三民區大昌一路 305 號</td>
+        </tr>
+        <tr>
+            <td>財團法人台灣省私立高雄仁愛之家附設慈惠醫院&nbsp&nbsp</td>
+            <td>07-7030315</td>
+            <td>高雄市大寮區鳳屏一路 509 號</td>
+        </tr>
+        <tr>
+            <td>高雄市立小港醫院</td>
+            <td>07-8036783 </td>
+            <td>高雄市小港區山明里山明路 482 號&nbsp&nbsp</td>
+        </tr>
+        <tr>
+            <td>高雄榮民總醫院</td>
+            <td>07-3422121 </td>
+            <td>高雄市左營區大中一路 386 號</td>
+        </tr>
+        <tr>
+            <td>國軍高雄總醫院左營分院附設民眾診療服務處&nbsp&nbsp</td>
+            <td>07-5817121&nbsp&nbsp </td>
+            <td>高雄市左營區軍校路 553 號</td>
+        </tr>
+        <tr>
+            <td>國軍高雄總醫院岡山分院附設民眾診療服務處</td>
+            <td>07-6250919 </td>
+            <td>高雄市岡山區大義二路 1 號</td>
+        </tr>
+        <tr>
+            <td>樂安醫院</td>
+            <td>07-6256791</td>
+            <td>高雄市岡山區通校路 300 號</td>
+        </tr>
+        <tr>
+            <td>建佑醫院</td>
+            <td>07-6437901 </td>
+            <td>高雄市林園區東林西路 360 號</td>
+        </tr>
+        <tr>
+            <td>高雄市立大同醫院</td>
+            <td>07-2911101 </td>
+            <td>高雄市前金區中華三路 68 號</td>
+        </tr>
+    </table>
+</div>
+</div>

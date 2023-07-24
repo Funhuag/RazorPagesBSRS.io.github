@@ -1,0 +1,65 @@
+﻿@page
+@model RazorPagesBSRS.Pages.Patients.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<div align = "center"><H1>DELETE</H1></DIV>
+<hr />
+<br/>
+<div align = "center" class="row">
+            <div align = "center" >
+            <div class="form-group">
+                <table>
+                <tr>
+                    <td>@Html.DisplayNameFor(model => model.BSRS.PatientID)</td>
+                    <td>@Html.DisplayFor(model => model.BSRS.PatientID)</td>
+                </tr>
+                <tr>
+            <td>@Html.DisplayNameFor(model => model.BSRS.Professionalnum)&nbsp;&nbsp;&nbsp;&nbsp;</td>
+            
+            <td>@Html.DisplayFor(model => model.BSRS.Professionalnum)</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.BSRS.Score1)</td>
+            
+            <td>@Html.DisplayFor(model => model.BSRS.Score1)</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.BSRS.Score2)</td>
+            
+            <td>@Html.DisplayFor(model => model.BSRS.Score2)</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.BSRS.Score3)</td>
+            
+            <td>@Html.DisplayFor(model => model.BSRS.Score3)</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.BSRS.Score4)</td>
+            
+            <td>@Html.DisplayFor(model => model.BSRS.Score4)</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.BSRS.Score5)</td>
+            
+            <td>@Html.DisplayFor(model => model.BSRS.Score5)</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.BSRS.Score6)</td>
+            
+            <td>@Html.DisplayFor(model => model.BSRS.Score6)</td>
+        </tr>
+                </div>
+            </div>
+        </table>
+    
+        <br/>
+        <br/>
+        <form method="post">
+        <input type="hidden" asp-for="BSRS.ID" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-page="./Index">Back to List</a>
+        </form>
+</div>

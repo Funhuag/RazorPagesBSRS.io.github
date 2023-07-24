@@ -1,0 +1,39 @@
+﻿@page
+@model RazorPagesBSRS.Pages.Patients.LoginModel
+@{
+}
+
+<div style = "background-color: #6b8e23;" class="text-center">
+    <h1 class="display-4">心情溫度計(BSRS-5)</h1>
+</div>
+<br/>
+<div align = "center"><H1>LOGIN</H1></DIV>
+<hr />
+<div align="center" class="row">
+    <form method="post">
+        <table>
+            <div align="center" calss="col-md-4">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <tr>
+                        <td>
+                            <div calss="form-group">
+                            <label class="contorl-label">帳號</label>
+                            <input asp-for="UserName" id="UserName" type="text" placeholder="請輸入職編" value=""/>
+                            <br/>
+                            <br/>
+                            </div>
+                            <div class="form-group">
+                                <label class="contorl-label">密碼</label>
+                                <input asp-for="Password" id="Password" type="text" placeholder="請輸入職員密碼" value="" />
+                            </div>
+                        </td>
+                    </tr>
+            </div>
+        </table>
+        <br/>
+        <br/>
+        <div class="form-group">
+            <input type="submit" value="Login"/>
+        </div>
+    </form>
+</div>
